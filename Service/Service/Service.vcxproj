@@ -118,6 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DB.h" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="sqlite3.c" />
     <ClCompile Include="SQLite\Backup.cpp" />

@@ -42,6 +42,9 @@
     <ClCompile Include="sqlite3.c">
       <Filter>SQLite</Filter>
     </ClCompile>
+    <ClCompile Include="DB.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
