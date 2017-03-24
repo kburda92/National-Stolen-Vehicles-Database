@@ -7,12 +7,12 @@ class FilterBuilder
 {
 public:
 	FilterBuilder(string&& query = "") : result(move(query)) {};
-	void BuildPart(string paramName, string paramValue)
+	void AddFilter(string paramName, string paramValue)
 	{
-		result.append(isFilterSet ? " AND" : " WHERE ");
+		result.append(isFilterSet ? " AND " : " WHERE ");
 		isFilterSet = true;
 
-		result.append(paramName + "=" + paramValue);
+		result.append(paramName + " = " + paramValue);
 	}
 	string GetResult() { return move(result); };
 private:

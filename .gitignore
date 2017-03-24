@@ -5,3 +5,5 @@ Service/packages/
 Service/Service/Debug/
 Service/Debug/
 Service/x64/
+Service/Service_tests/Debug/
+Service/ipch/
