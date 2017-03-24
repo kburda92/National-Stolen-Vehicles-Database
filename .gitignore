@@ -2,3 +2,6 @@ Service/packages/
 *.db
 *.opendb
 *.suo
+Service/Service/Debug/
+Service/Debug/
+Service/x64/

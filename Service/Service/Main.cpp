@@ -1,6 +1,7 @@
 #include <cpprest/http_listener.h>
 #include <cpprest/json.h>
 #include <iostream>
+#include <SQLiteCpp/SQLiteCpp.h>
 
 using namespace web;
 using namespace web::http;
@@ -13,6 +14,8 @@ void SearchForVehicle(http_request request)
 
 int main()
 {
+	SQLite::Database db("NSVD.db", SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);
+
 	http_listener listener{ L"http://localhost/NSVD/search" };
 	listener.support(methods::GET, SearchForVehicle);
 
