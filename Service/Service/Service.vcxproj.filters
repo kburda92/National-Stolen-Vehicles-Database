@@ -45,12 +45,18 @@
     <ClCompile Include="DB.h">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="SearchListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FilterBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchListener.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

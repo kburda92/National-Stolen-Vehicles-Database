@@ -6,7 +6,7 @@ using namespace std;
 class FilterBuilder
 {
 public:
-	FilterBuilder(string&& query = "") : result(move(query)) {};
+	FilterBuilder(string&& query) : result(move(query)) {};
 	void AddFilter(string paramName, string paramValue)
 	{
 		result.append(isFilterSet ? " AND " : " WHERE ");

@@ -120,6 +120,7 @@
   <ItemGroup>
     <ClCompile Include="DB.h" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="SearchListener.cpp" />
     <ClCompile Include="sqlite3.c" />
     <ClCompile Include="SQLite\Backup.cpp" />
     <ClCompile Include="SQLite\Column.cpp" />
@@ -133,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FilterBuilder.h" />
+    <ClInclude Include="SearchListener.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
