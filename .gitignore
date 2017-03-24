@@ -1,0 +1,4 @@
+Service/packages/
+*.db
+*.opendb
+*.suo
