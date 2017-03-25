@@ -1,43 +1,25 @@
 #pragma once
-#include<memory>
-#include <cpprest/http_listener.h>
+#include <memory>
+#include <string>
+#include <map>
 
-using namespace std;
+typedef std::map<std::wstring, std::wstring> ParametersMap;
 
 class Logger
 {
 protected:
-	shared_ptr<Logger> next;
-	virtual void Write(map<utility::string_t, utility::string_t>& values) = 0;
+	std::shared_ptr<Logger> next;
+	virtual void Write(ParametersMap& values) = 0;
 public:
-	void SetNext(shared_ptr<Logger> next)
+	void SetNext(std::shared_ptr<Logger> next)
 	{
 		this->next = next;
 	}
 
-	virtual void Log(map<utility::string_t, utility::string_t>& values)
+	void Logger::Log(ParametersMap& values)
 	{
 		Write(values);
 		if (next)
 			next->Log(values);
-	}
-};
-
-class ConsoleLogger : public Logger
-{
-protected:
-	void Write(map<utility::string_t, utility::string_t>& values)
-	{
-		//TODO - save to console
-	}
-};
-
-class DatabaseLogger : public Logger
-{
-protected:
-	void Write(map<utility::string_t, utility::string_t>& values)
-	{
-		//TODO - save to db
-
 	}
 };

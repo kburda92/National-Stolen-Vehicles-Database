@@ -3,6 +3,8 @@
 #include <cpprest/json.h>
 #include "FilterBuilder.h"
 #include "DB.h"
+#include "ConsoleLogger.h"
+#include "DatabaseLogger.h"
 
 using namespace std;
 using namespace utility;
@@ -11,9 +13,13 @@ using namespace web::http;
 using namespace web::http::experimental::listener;
 
 SearchListener::SearchListener() : 
-	listener(make_unique<http_listener>(L"http://localhost/NSVD/search"))
+	listener(make_unique<http_listener>(L"http://localhost/NSVD/search")),
+	consoleLogger(make_shared<ConsoleLogger>()),
+	databaseLogger(make_shared<DatabaseLogger>())
 {
 	listener->support(methods::GET, SearchForVehicle);
+	//chain of resposibility pattern - consoleLogger will automatically pass the data to database logger
+	consoleLogger->SetNext(databaseLogger);
 }
 
 SearchListener::~SearchListener()

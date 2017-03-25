@@ -1,7 +1,7 @@
 #pragma once
-#include "config.h"
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"
 #include "../Service/FilterBuilder.h"
-#include <algorithm>
 
 TEST_CASE("SelectWithoutFilter", "[FilterBuilder]") 
 {

@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 
+class Logger;
 namespace web { namespace http { 
 	class http_request;
 namespace experimental {namespace listener {
@@ -16,5 +17,6 @@ public:
 private:
 	std::unique_ptr<web::http::experimental::listener::http_listener> listener;
 	static void SearchForVehicle(web::http::http_request& request);
+	std::shared_ptr<Logger> consoleLogger, databaseLogger;
 };
 
