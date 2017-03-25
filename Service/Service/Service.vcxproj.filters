@@ -1,32 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="SQLite">
       <UniqueIdentifier>{b3697394-b05d-4571-a0fd-728499f4cea9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Loggers">
-      <UniqueIdentifier>{37a6b634-d09b-460d-aa59-861b974ac505}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Builders">
+    <Filter Include="Builders">
       <UniqueIdentifier>{64564fcd-182f-4789-a5b4-de66734b8667}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Loggers">
+      <UniqueIdentifier>{37a6b634-d09b-460d-aa59-861b974ac505}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SQLite\Backup.cpp">
       <Filter>SQLite</Filter>
     </ClCompile>
@@ -45,43 +30,36 @@
     <ClCompile Include="SQLite\Transaction.cpp">
       <Filter>SQLite</Filter>
     </ClCompile>
-    <ClCompile Include="DB.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SearchListener.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SQLite\sqlite3.c">
       <Filter>SQLite</Filter>
     </ClCompile>
+    <ClCompile Include="DB.h" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="SearchListener.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SearchListener.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Logger.h">
-      <Filter>Header Files\Loggers</Filter>
+      <Filter>Loggers</Filter>
     </ClInclude>
     <ClInclude Include="ConsoleLogger.h">
-      <Filter>Header Files\Loggers</Filter>
+      <Filter>Loggers</Filter>
     </ClInclude>
     <ClInclude Include="DatabaseLogger.h">
-      <Filter>Header Files\Loggers</Filter>
-    </ClInclude>
-    <ClInclude Include="Utils.h">
-      <Filter>Header Files</Filter>
+      <Filter>Loggers</Filter>
     </ClInclude>
     <ClInclude Include="FieldBuilder.h">
-      <Filter>Header Files\Builders</Filter>
+      <Filter>Builders</Filter>
     </ClInclude>
     <ClInclude Include="FilterBuilder.h">
-      <Filter>Header Files\Builders</Filter>
+      <Filter>Builders</Filter>
     </ClInclude>
     <ClInclude Include="Builder.h">
-      <Filter>Header Files\Builders</Filter>
+      <Filter>Builders</Filter>
     </ClInclude>
+    <ClInclude Include="SearchListener.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
 </Project>
