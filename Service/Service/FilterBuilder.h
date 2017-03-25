@@ -6,17 +6,17 @@ using namespace std;
 class FilterBuilder
 {
 public:
-	FilterBuilder(string&& query) : result(move(query)) {};
-	void AddFilter(string paramName, string paramValue)
+	FilterBuilder(wstring&& query) : result(move(query)) {};
+	void AddFilter(wstring paramName, wstring paramValue)
 	{
-		result.append(isFilterSet ? " AND " : " WHERE ");
+		result.append(isFilterSet ? L" AND " : L" WHERE ");
 		isFilterSet = true;
 
-		result.append(paramName + " = " + paramValue);
+		result.append(paramName + L" = " + paramValue);
 	}
-	string GetResult() { return move(result); };
+	wstring GetResult() { return move(result); };
 private:
-	string result;
+	wstring result;
 	bool isFilterSet = false;
 };
 

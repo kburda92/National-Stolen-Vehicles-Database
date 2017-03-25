@@ -5,8 +5,8 @@
 
 TEST_CASE("SelectWithoutFilter", "[FilterBuilder]") 
 {
-	FilterBuilder builder("select * from vehicles");
-	auto expected = "select * from vehicles";
+	FilterBuilder builder(L"select * from vehicles");
+	auto expected = L"select * from vehicles";
 	auto actual = builder.GetResult();
 	REQUIRE(expected == actual);
 }
@@ -14,9 +14,9 @@ TEST_CASE("SelectWithoutFilter", "[FilterBuilder]")
 TEST_CASE("SelectWithOneFilter", "[FilterBuilder]")
 {
 	using namespace std;
-	FilterBuilder builder("select * from vehicles");
-	builder.AddFilter("registration", "SPS20202");
-	string expected = "select * from vehicles "
+	FilterBuilder builder(L"select * from vehicles");
+	builder.AddFilter(L"registration", L"SPS20202");
+	wstring expected = L"select * from vehicles "
 					  "where registration = sps20202";
 	auto actual = builder.GetResult();
 	transform(begin(expected), end(expected), begin(expected), ::tolower);
@@ -26,12 +26,12 @@ TEST_CASE("SelectWithOneFilter", "[FilterBuilder]")
 TEST_CASE("SelectWithManyFilters", "[FilterBuilder]")
 {
 	using namespace std;
-	FilterBuilder builder("select * from vehicles");
-	builder.AddFilter("registration", "WZW2020");
-	builder.AddFilter("make", "Chevrolet");
-	builder.AddFilter("model", "Camaro");
+	FilterBuilder builder(L"select * from vehicles");
+	builder.AddFilter(L"registration", L"WZW2020");
+	builder.AddFilter(L"make", L"Chevrolet");
+	builder.AddFilter(L"model", L"Camaro");
 
-	string expected = "select * from vehicles "
+	wstring expected = L"select * from vehicles "
 					  "where registration = WZW2020 "
 					  "and make = Chevrolet "
 					  "and model = Camaro";

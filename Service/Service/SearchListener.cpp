@@ -39,11 +39,12 @@ void SearchListener::SearchForVehicle(http_request& request)
 
 	auto& searchParameters = uri::split_query(request.relative_uri().query());
 
-	FilterBuilder builder("SELECT registration, make, model, owner FROM vehicles");
+	FilterBuilder builder(L"SELECT registration, make, model, owner FROM vehicles");
 	for (auto& param : searchParameters)
-		builder.AddFilter(to_utf8string(param.first), to_utf8string(param.second));
+		builder.AddFilter(param.first, param.second);
 
-	SQLite::Statement query(DB::GetInstance(), builder.GetResult());
+	auto result = builder.GetResult();
+	SQLite::Statement query(DB::GetInstance(), string(begin(result), end(result)));
 
 	json::value foundCars;
 	int count = 0;
