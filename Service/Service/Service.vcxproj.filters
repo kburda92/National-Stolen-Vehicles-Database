@@ -19,6 +19,9 @@
     <Filter Include="Header Files\Loggers">
       <UniqueIdentifier>{37a6b634-d09b-460d-aa59-861b974ac505}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Builders">
+      <UniqueIdentifier>{64564fcd-182f-4789-a5b4-de66734b8667}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -56,9 +59,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FilterBuilder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SearchListener.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -73,6 +73,15 @@
     </ClInclude>
     <ClInclude Include="Utils.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FieldBuilder.h">
+      <Filter>Header Files\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterBuilder.h">
+      <Filter>Header Files\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="Builder.h">
+      <Filter>Header Files\Builders</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

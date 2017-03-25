@@ -1,5 +1,6 @@
 #pragma once
 #include "catch.hpp"
+#include "TestUtils.h"
 #include "../Service/ConsoleLogger.h"
 
 using namespace std;
@@ -14,17 +15,10 @@ TEST_CASE("LogWithParameters", "[ConsoleLogger]")
 	params[L"owner"] = L"John Walt";
 	logger->Log(params);
 
+	//We get actual log and cut data
 	auto actual = os.str();
-	//We check actual log without data with small letters 
 	actual = std::wstring(begin(actual) + 21, end(actual));
-	transform(begin(actual), end(actual), begin(actual), ::tolower);
 
 	wstring expected = L"Search parameters: owner: John Walt registration: ABCDEFG";
-	transform(begin(expected), end(expected), begin(expected), ::tolower);
-
-	REQUIRE(actual == expected);
-	//REQUIRE(actual.find(L"Searching for: ") != std::wstring::npos);
-	//REQUIRE(actual.find(L"registration: ABCDEFG") != std::wstring::npos);
-	//REQUIRE(actual.find(L"owner: John Walt") != std::wstring::npos);
-
+	REQUIRE(to_lower(actual) == to_lower(expected));
 }

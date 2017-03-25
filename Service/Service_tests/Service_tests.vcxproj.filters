@@ -18,12 +18,15 @@
     <ClInclude Include="catch.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TestUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FilterBuilder_utest.cpp">
+    <ClCompile Include="Logger_utest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Logger_utest.cpp">
+    <ClCompile Include="Builder_utest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

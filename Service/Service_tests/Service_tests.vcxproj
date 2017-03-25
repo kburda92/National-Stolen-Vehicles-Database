@@ -147,9 +147,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="catch.hpp" />
+    <ClInclude Include="TestUtils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FilterBuilder_utest.cpp" />
+    <ClCompile Include="Builder_utest.cpp" />
     <ClCompile Include="Logger_utest.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 #include "Logger.h"
 #include <iostream>
 #include "Utils.h"
+#include <memory>
 
 class ConsoleLogger : public Logger
 {
@@ -12,7 +13,7 @@ public:
 protected:
 	virtual void Write(ParametersMap& values) override
 	{
-		os << GetCurrentDateTimeStream() << " Search parameters:";
+		os << GetCurrentDateTime() << " Search parameters:";
 		for (auto& value : values)
 			os << " " << value.first << ": " << value.second;
 	}
