@@ -13,7 +13,7 @@ public:
 protected:
 	virtual void Write(ParametersMap& values) override
 	{
-		os << GetCurrentDateTime() << " Search parameters:";
+		os << "\n" << GetCurrentDateTime() << "\nSearch parameters:";
 		for (auto& value : values)
 			os << " " << value.first << ": " << value.second;
 	}

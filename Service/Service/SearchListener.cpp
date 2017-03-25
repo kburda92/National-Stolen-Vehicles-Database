@@ -38,12 +38,17 @@ void SearchListener::SearchForVehicle(http_request& request)
 	auto& searchParameters = uri::split_query(request.relative_uri().query());
 
 	FilterBuilder builder(L"SELECT registration, make, model, owner FROM vehicles");
+	//we change %20 to space and pass parameters to builder
 	for (auto& param : searchParameters)
+	{
+		param.second = web::uri::decode(param.second);
 		builder.BuildPart(param.first, param.second);
+	}
 
 	auto result = builder.GetResult();
 	SQLite::Statement query(DB::GetInstance(), string(begin(result), end(result)));
-
+	
+	//log - chain of responsibility pattern - consoleLogger will automatically pass data to databaseLogger
 	consoleLogger->Log(searchParameters);
 
 	json::value foundCars;

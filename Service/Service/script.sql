@@ -8,11 +8,11 @@ CREATE TABLE IF NOT EXISTS `Vehicles` (
 
 CREATE TABLE IF NOT EXISTS `Vehicles_Log` (
 	`ID`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
-	`Date`	TEXT NOT NULL,
-	`Registration`	TEXT NOT NULL UNIQUE,
-	`Make`	TEXT NOT NULL,
-	`Model`	TEXT NOT NULL,
-	`Owner`	TEXT NOT NULL
+	`Date`	TEXT,
+	`Registration`	TEXT,
+	`Make`	TEXT,
+	`Model`	TEXT,
+	`Owner`	TEXT
 );
 
 INSERT INTO `Vehicles`(`Registration`,`Make`,`Model`,`Owner`) VALUES ('SB122256','Honda','CR-V','Jan Kowalski');

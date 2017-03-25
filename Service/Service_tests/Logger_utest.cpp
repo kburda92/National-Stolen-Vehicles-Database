@@ -17,7 +17,7 @@ TEST_CASE("LogWithParameters", "[ConsoleLogger]")
 
 	//We get actual log and cut data
 	auto actual = os.str();
-	actual = std::wstring(begin(actual) + 21, end(actual));
+	actual = std::wstring(begin(actual) + 22, end(actual));
 
 	wstring expected = L"Search parameters: owner: John Walt registration: ABCDEFG";
 	REQUIRE(to_lower(actual) == to_lower(expected));
