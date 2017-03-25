@@ -21,10 +21,11 @@ TEST_CASE("SelectWithOneFilter", "[FilterBuilder]")
 	FilterBuilder builder(L"select * from vehicles");
 	builder.BuildPart(L"registration", L"SPS20202");
 	wstring expected = L"select * from vehicles "
-					  "where registration = sps20202";
+					  "where registration = 'sps20202'";
 	auto actual = builder.GetResult();
 	REQUIRE(to_lower(expected) == to_lower(actual));
 }
+
 TEST_CASE("SelectWithManyFilters", "[FilterBuilder]")
 {
 	using namespace std;
@@ -34,9 +35,9 @@ TEST_CASE("SelectWithManyFilters", "[FilterBuilder]")
 	builder.BuildPart(L"model", L"Camaro");
 
 	wstring expected = L"select * from vehicles "
-					  "where registration = WZW2020 "
-					  "and make = Chevrolet "
-					  "and model = Camaro";
+					  "where registration = 'WZW2020' "
+					  "and make = 'Chevrolet' "
+					  "and model = 'Camaro'";
 	auto actual = builder.GetResult();
 	REQUIRE(to_lower(expected) == to_lower(actual));
 }
@@ -55,7 +56,7 @@ TEST_CASE("InsertWithOneField", "[FieldBuilder]")
 	builder.BuildPart(L"registration", L"WZW2020");
 
 	auto expected = L"insert into vehicles_log "
-		"(registration) values (WZW2020)";
+		"(registration) values ('WZW2020')";
 	auto actual = builder.GetResult();
 	REQUIRE(to_lower(expected) == to_lower(actual));
 }
@@ -69,7 +70,7 @@ TEST_CASE("InsertWithManyField", "[FieldBuilder]")
 
 	auto expected = L"insert into vehicles_log "
 		"(registration, make, model) "
-		"values (WZW2020, Chevrolet, Camaro)";
+		"values ('WZW2020', 'Chevrolet', 'Camaro')";
 	auto actual = builder.GetResult();
 	REQUIRE(to_lower(expected) == to_lower(actual));
 }

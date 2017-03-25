@@ -17,6 +17,5 @@ public:
 private:
 	std::unique_ptr<web::http::experimental::listener::http_listener> listener;
 	static void SearchForVehicle(web::http::http_request& request);
-	std::shared_ptr<Logger> consoleLogger, databaseLogger;
 };
 

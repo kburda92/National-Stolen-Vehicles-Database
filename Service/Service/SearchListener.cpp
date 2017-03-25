@@ -12,13 +12,9 @@ using namespace web::http;
 using namespace web::http::experimental::listener;
 
 SearchListener::SearchListener() : 
-	listener(make_unique<http_listener>(L"http://localhost/NSVD/search")),
-	consoleLogger(make_shared<ConsoleLogger>()),
-	databaseLogger(make_shared<DatabaseLogger>())
+	listener(make_unique<http_listener>(L"http://localhost/NSVD/search"))
 {
 	listener->support(methods::GET, SearchForVehicle);
-	//chain of resposibility pattern - consoleLogger will automatically pass the data to database logger
-	consoleLogger->SetNext(databaseLogger);
 }
 
 SearchListener::~SearchListener()
@@ -47,6 +43,8 @@ void SearchListener::SearchForVehicle(http_request& request)
 
 	auto result = builder.GetResult();
 	SQLite::Statement query(DB::GetInstance(), string(begin(result), end(result)));
+
+	consoleLogger->Log(searchParameters);
 
 	json::value foundCars;
 	int count = 0;

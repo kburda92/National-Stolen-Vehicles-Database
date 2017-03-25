@@ -13,7 +13,7 @@ public:
 		result.append(first ? L" WHERE " : L" AND ");
 		first = false;
 
-		result.append(paramName + L" = " + paramValue);
+		result.append(paramName + L" = '" + paramValue + L"'");
 	}
 	wstring GetResult() { return move(result); };
 private:

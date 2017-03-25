@@ -12,14 +12,14 @@ public:
 	void BuildPart(wstring paramName, wstring paramValue)
 	{
 		resultNames.append(first ? L" (" : L", ");
-		resultValues.append(first ? L") VALUES (" : L", ");
+		resultValues.append(first ? L") VALUES ('" : L"', '");
 
 		first = false;
 
 		resultNames.append(paramName);
 		resultValues.append(paramValue);
 	}
-	wstring GetResult() { return move(resultNames + resultValues + (resultValues.empty() ? L"" : L")")); };
+	wstring GetResult() { return move(resultNames + resultValues + (resultValues.empty() ? L"" : L"')")); };
 private:
 	wstring resultNames, resultValues;
 };
