@@ -1,5 +1,5 @@
-#define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#pragma once
+#include "config.h"
 #include "../Service/FilterBuilder.h"
 #include <algorithm>
 
@@ -40,3 +40,4 @@ TEST_CASE("SelectWithManyFilters", "[FilterBuilder]")
 	transform(begin(actual), end(actual), begin(actual), ::tolower);
 	REQUIRE(expected == actual);
 }
+
